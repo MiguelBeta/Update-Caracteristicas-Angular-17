@@ -1,4 +1,5 @@
 
+<app-title title= "Control Flow" />
 
 <section class="grid grid-cols-1 md:grid-cols-2 gap-3">
   <!-- ngInf @if -->
@@ -19,7 +20,7 @@
     }
   </div>
 
-    <!-- ngInf @if -->
+    <!-- @switch -->
     <div class="bg-white rounded shadow p-10">
       <h2 class="text-2xl font-bold mb-5"> {{ grade() }} </h2>
 
@@ -35,4 +36,30 @@
         }
       }
     </div>
-  </section>
+
+    <!-- @for -->
+    <div class="bg-white rounded shadow p-10">
+      <h2 class="text-2xl font-bold mb-5"> {{ grade() }} </h2>
+        <ul>
+          @for (framework of frameworks(); track frameworks; let i = $index, count = $count ) {
+            <li>
+              {{ i + 1 }} / {{ count }}: {{ framework }}
+            </li>
+          }
+        </ul>
+    </div>
+
+    <div class="bg-white rounded shadow p-10">
+        <ul>
+          @for (framework of frameworks2(); track frameworks; let i = $index, count = $count ) {
+            <li>
+              {{ i + 1 }} / {{ count }}: {{ framework }}
+            </li>
+          }@empty {
+            <li>No hay fragmentos agregados</li>
+          }
+        </ul>
+
+    </div>
+
+</section>
